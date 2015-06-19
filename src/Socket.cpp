@@ -98,6 +98,9 @@ void CZNCSock::SSLHandShakeFinished() {
 		return;
 	}
 
+	/* ZNC sucks. */
+	return;
+
 	X509* pCert = GetX509();
 	if (!pCert) {
 		DEBUG(GetSockName() + ": No cert");
