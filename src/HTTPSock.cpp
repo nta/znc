@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <znc/HTTPSock.h>
 #include <znc/FileUtils.h>
 #include <znc/znc.h>
 #include <iomanip>
@@ -653,10 +654,7 @@ bool CHTTPSock::PrintErrorPage(unsigned int uStatusId, const CString& sStatusMsg
 				"<h1>" + sStatusMsg.Escape_n(CString::EHTML) + "</h1>\r\n"
 				"<p>" + sMessage.Escape_n(CString::EHTML) + "</p>\r\n"
 				"<hr/>\r\n"
-				"<address>" +
-					CZNC::GetTag(false, /* bHTML = */ true) +
-					" at " + GetLocalIP().Escape_n(CString::EHTML) + " Port " + CString(GetLocalPort()) +
-				"</address>\r\n"
+				"<p>" + CZNC::GetTag(false, /* bHTML = */ true) + "</p>\r\n"
 			"</body>\r\n"
 		"</html>\r\n";
 
